@@ -1,0 +1,9 @@
+.venv
+__pycache__
+*.pyc
+*.pyo
+.env
+wandb
+models
+.logfire
+openenv_noc_agent.egg-info

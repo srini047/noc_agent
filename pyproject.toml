@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openenv-noc_agent"
+version = "0.1.0"
+description = "Autonomous NOC Incident Triage Agent — RL-based system health management"
+requires-python = ">=3.10"
+dependencies = [
+    # OpenEnv runtime (FastAPI server + client types)
+    "openenv-core[core]>=0.2.2",
+
+    # RL ecosystem
+    "gymnasium>=0.29.0",
+    "stable-baselines3>=2.3.0",
+
+    # Deep learning backend (required by SB3)
+    "torch>=2.2.0",
+
+    # Observability
+    "logfire[fastapi]>=3.0.0",
+
+    # Experiment tracking
+    "wandb>=0.16.0",
+
+    # Demo UI
+    "gradio>=4.36.0",
+    "plotly>=5.22.0",
+
+    # Post-episode analysis
+    "cohere>=5.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+# Run the OpenEnv environment server:  uv run server
+server = "noc_agent.server.app:main"
+# Run RL training:                     uv run train
+train  = "noc_agent.training.train:main"
+# Run the Gradio demo:                 uv run demo
+demo   = "noc_agent.demo.app:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = [
+    "noc_agent",
+    "noc_agent.server",
+    "noc_agent.training",
+    "noc_agent.demo",
+]
+[tool.setuptools.package-dir]
+"noc_agent"          = "."
+"noc_agent.server"   = "server"
+"noc_agent.training" = "training"
+"noc_agent.demo"     = "demo"

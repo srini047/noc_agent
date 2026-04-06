@@ -1,0 +1,33 @@
+{
+  "os": "macOS-26.2-arm64-arm-64bit-Mach-O",
+  "python": "CPython 3.13.9",
+  "startedAt": "2026-04-04T09:27:11.908043Z",
+  "program": "/Users/sriniketh/Documents/learn-openenv/noc_agent/.venv/bin/train",
+  "codePath": ".venv/bin/train",
+  "codePathLocal": ".venv/bin/train",
+  "email": "srinikethcr7@gmail.com",
+  "root": "/Users/sriniketh/Documents/learn-openenv/noc_agent",
+  "host": "Srinikeths-MacBook-Pro.local",
+  "executable": "/Users/sriniketh/Documents/learn-openenv/noc_agent/.venv/bin/python",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "235766804480"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M1 Pro",
+    "ecpuCores": 2,
+    "pcpuCores": 8,
+    "gpuCores": 16,
+    "memoryGb": 16,
+    "swapTotalBytes": "3221225472",
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "hmhr16v1jdkprnsoipah4bsxxliwidcr"
+}

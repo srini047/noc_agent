@@ -1,0 +1,1 @@
+{"_step":24,"rollout/ep_rew_mean":17.550821177664975,"rollout/ep_rew_max":28.675046,"rollout/ep_rew_min":8.392173,"_timestamp":1.775294898434199e+09,"_wandb":{"runtime":66},"_runtime":66,"train/timesteps":204800,"rollout/ep_len_mean":20.69796954314721}

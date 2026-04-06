@@ -1,0 +1,61 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            hmhr16v1jdkprnsoipah4bsxxliwidcr:
+                apple:
+                    ecpuCores: 2
+                    gpuCores: 16
+                    memoryGb: 16
+                    name: Apple M1 Pro
+                    pcpuCores: 8
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "3221225472"
+                codePath: .venv/bin/train
+                codePathLocal: .venv/bin/train
+                cpu_count: 10
+                cpu_count_logical: 10
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "235766804480"
+                email: srinikethcr7@gmail.com
+                executable: /Users/sriniketh/Documents/learn-openenv/noc_agent/.venv/bin/python
+                host: Srinikeths-MacBook-Pro.local
+                memory:
+                    total: "17179869184"
+                os: macOS-26.2-arm64-arm-64bit-Mach-O
+                program: /Users/sriniketh/Documents/learn-openenv/noc_agent/.venv/bin/train
+                python: CPython 3.13.9
+                root: /Users/sriniketh/Documents/learn-openenv/noc_agent
+                startedAt: "2026-04-04T09:27:11.908043Z"
+                writerId: hmhr16v1jdkprnsoipah4bsxxliwidcr
+        m: []
+        python_version: 3.13.9
+        t:
+            "1":
+                - 1
+                - 49
+                - 105
+            "2":
+                - 1
+                - 49
+                - 105
+            "3":
+                - 2
+                - 3
+                - 16
+            "4": 3.13.9
+            "5": 0.25.1
+            "12": 0.25.1
+            "13": darwin-arm64
+algorithm:
+    value: PPO
+incident_type:
+    value: random
+n_envs:
+    value: 4
+seed:
+    value: 42
+total_timesteps:
+    value: 200000
