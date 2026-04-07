@@ -44,8 +44,13 @@ API_KEY      = os.getenv("API_KEY") or os.getenv("HF_TOKEN")
 IMAGE_NAME   = os.getenv("IMAGE_NAME", "openenv-noc_agent")
 BENCHMARK    = os.getenv("NOC_AGENT_BENCHMARK", "noc_agent")
 
-# If set, run only that task; otherwise run all three in order (easy → hard)
-_SINGLE_TASK: Optional[str] = os.getenv("NOC_AGENT_TASK")
+# Set ENV_BASE_URL to override (e.g. for a remote server).
+# Set USE_DOCKER=true to force Docker-based startup for local testing.
+ENV_BASE_URL = os.getenv("ENV_BASE_URL", "https://srini047-noc-agent.hf.space")
+USE_DOCKER   = os.getenv("USE_DOCKER", "false").lower() in ("1", "true", "yes")
+
+# If set, run only that task; otherwise defaults to network_congestion
+_SINGLE_TASK: Optional[str] = os.getenv("NOC_AGENT_TASK", "network_congestion")
 
 ALL_TASKS: list[str] = [
     "network_congestion",   # easy
@@ -206,7 +211,11 @@ async def run_episode(task: str, client: OpenAI) -> dict:
 
     log_start(task=task, env=BENCHMARK, model=MODEL_NAME)
 
-    env = await NocAgentEnvClient.from_docker_image(IMAGE_NAME)
+    if USE_DOCKER:
+        env = await NocAgentEnvClient.from_docker_image(IMAGE_NAME)
+    else:
+        env = NocAgentEnvClient(base_url=ENV_BASE_URL)
+        await env.connect()
 
     try:
         # Pin exact incident type via reset kwargs (server forwards to reset(incident_type=...))
